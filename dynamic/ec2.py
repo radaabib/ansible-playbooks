@@ -14,7 +14,7 @@
 # provide the 'regions_exclude' option. If this is set to 'auto', AWS_REGION or
 # AWS_DEFAULT_REGION environment variable will be read to determine the region.
 
-regions = eu-west-2
+regions = eu-west-1,us-east-1,us-west-2
 
 #regions_exclude = us-gov-west-1, cn-north-1
 
