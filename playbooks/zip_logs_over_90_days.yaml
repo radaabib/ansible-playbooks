@@ -1,0 +1,9 @@
+---
+- name: Zips logs over 90 days old 
+  hosts: all
+  become: true
+  become_method: sudo
+  user: centos
+  tasks:
+  - name: Run find command
+    shell: "find   /var/log     -type f      -name "*.log"    -mtime +90    -exec   gzip -v9   {} +"
