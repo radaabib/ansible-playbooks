@@ -40,6 +40,7 @@
   ignore_errors: true
 
 
+
   - name: Stop Mariadb
     when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
     systemd: 
