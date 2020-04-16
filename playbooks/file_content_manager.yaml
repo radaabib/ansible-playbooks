@@ -1,6 +1,6 @@
 ---
 - name: Manage files
-  hosts: localhost
+  hosts: all
   become: true
   become_method: sudo
   user: centos
@@ -8,4 +8,14 @@
   - name: Manage etc motd
     lineinfile:
       path: "/etc/motd"
-      line: "This is changed"
+      regexp: "^This machine is managed by SysEng"
+      line: "This machine is managed by DevOps"
+
+
+- name: Block
+  blockinfile:
+    path: "/tmp/non_existent"
+    block:
+      This file is created by me
+      and managed by me
+    create: yes
