@@ -26,7 +26,7 @@
 
   - name: Get Key
     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
-    shell: "r1soft-setup --get-key 3.8.115.193" 
+    shell: "r1soft-setup --get-key http://3.8.115.193" 
 
   handlers: 
   - name: AGENT_RESTART
