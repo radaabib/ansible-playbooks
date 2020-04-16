@@ -1,0 +1,11 @@
+---
+- name: Manage files
+  hosts: localhost
+  become: true
+  become_method: sudo
+  user: centos
+  tasks:
+  - name: Manage etc motd
+    lineinfile:
+      path: "/etc/motd"
+      line: "This is changed"

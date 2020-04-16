@@ -3,5 +3,6 @@
   hosts: localhost
   become: true
   become_method: sudo
+  user: centos
   tasks:
   - name:
