@@ -12,10 +12,10 @@
       line: "This machine is managed by DevOps"
 
 
- - name: Block
-   blockinfile:
-     path: "/tmp/non_existent"
-     block: |
-       This file is created by me
-       and managed by me
-     create: yes
+  - name: Block
+    blockinfile:
+      path: "/tmp/non_existent"
+      block: |
+        This file is created by me
+        and managed by me
+      create: yes
