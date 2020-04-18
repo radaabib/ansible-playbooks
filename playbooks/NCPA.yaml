@@ -1,0 +1,33 @@
+---
+- name: My First playbook
+  hosts: all
+  become: true
+  become_method: sudo
+  user: centos
+  ignore_errors: true
+  gather_facts: true
+  tasks:
+  - name: Setup a repo
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")    
+    shell: rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-4.el7.noarch.rpm
+
+  - name: Install ncpa
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+    package: 
+      name: ncpa
+      state: present
+      
+  - name: Change a line
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+    lineinfile:
+      path: /usr/local/ncpa/etc/ncpa.cfg
+      regexp: '^community_string'
+      line: 'community_string = mytoken2020'
+    notify: RESTART_NCPA
+  
+  handlers: 
+  - name: RESTART_NCPA
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+    systemd:
+      name: ncpa_listener
+      state: restarted
