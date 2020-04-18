@@ -1,0 +1,7 @@
+---
+- name: Playbook name
+  hosts: localhost
+  task:
+- import_paybook: team1/playbook1.yaml
+- import_paybook: /var/run/ansible/playbook2.yaml
+- import_paybook: team3/playbook3.yaml

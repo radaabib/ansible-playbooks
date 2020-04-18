@@ -1,0 +1,8 @@
+key_name:         "Bastion"
+instance_type:    "t2.micro"
+image:            "ami-0323c3dd2da7fb37d"
+group:            "sg-03a0f58a3ab2d9671"
+count:            5
+vpc_subnet_id:    "subnet-014de8124af02267f"
+assign_public_ip: yes
+region:           "us-east-1"
